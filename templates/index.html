@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор цитат</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">ТВОЯ ЕЖЕДНЕВНАЯ ДОЗА ВДОХНОВЕНИЯ</p>
+            <h1>Генератор цитат</h1>
+            <p class="subtitle">
+                Иногда достаточно одной фразы, чтобы посмотреть на мир иначе.
+            </p>
+        </header>
+
+        <section class="quote-card">
+            <div class="quote-mark">“</div>
+
+            <p id="quote-text">
+                Великие дела начинаются с маленьких шагов.
+            </p>
+
+            <p id="quote-author">— Генератор цитат</p>
+
+            <div class="actions">
+                <button id="generate-btn">Новая цитата</button>
+                <button id="combine-btn" class="secondary-btn">
+                    Создать комбинацию
+                </button>
+                <button id="copy-btn" class="secondary-btn">
+                    Копировать
+                </button>
+                <button id="external-btn" class="secondary-btn">
+                    Цитата из интернета
+                </button>
+                <button id="save-current-btn" class="secondary-btn">
+                    Сохранить в коллекцию
+                </button>
+            </div>
+
+            <p id="message" class="message" aria-live="polite"></p>
+        </section>
+
+        <footer>
+            Учись. Действуй. Создавай.
+        </footer>
+
+        <section class="add-quote-card">
+            <h2>Моя коллекция</h2>
+            <p class="form-description">Цитаты, сохранённые в базе данных.</p>
+            <button id="refresh-quotes-btn" type="button">
+                Обновить коллекцию
+            </button>
+            <div id="saved-quotes-list"></div>
+            <p id="collection-message" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="add-quote-card">
+            <h2>Добавить цитату</h2>
+            <p class="form-description">
+                Сохрани любимую фразу в общей коллекции.
+            </p>
+
+            <form id="add-quote-form">
+                <label for="new-quote-text">Текст цитаты</label>
+                <textarea id="new-quote-text" maxlength="1000" placeholder="Введите текст цитаты..."
+                    required></textarea>
+
+                <label for="new-quote-author">Автор</label>
+                <input type="text" id="new-quote-author" maxlength="100" placeholder="Имя автора" required>
+
+                <label for="new-quote-category">Категория</label>
+                <select id="new-quote-category" required>
+                    <option value="">Выберите категорию</option>
+                    <option value="мотивация">Мотивация</option>
+                    <option value="философия">Философия</option>
+                    <option value="учёба">Учёба</option>
+                    <option value="юмор">Юмор</option>
+                    <option value="мудрость">Мудрость</option>
+                    <option value="другое">Другое</option>
+                </select>
+
+                <button type="submit" id="save-quote-btn">
+                    Сохранить цитату
+                </button>
+
+                <p id="save-message" class="message" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+    <p class="attribution">
+        Цитаты из интернета предоставлены
+        <a href="https://echoes.soferity.com/" target="_blank" rel="noopener noreferrer">
+            Echoes
+        </a>
+    </p>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
